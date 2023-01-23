@@ -6,7 +6,15 @@ import "./Login.css";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
-  console.log(userName);
+
+  const clickLogin = () => {
+    if (userName.length < 3) {
+      alert("Username deve conter mais de 3 caracteres.");
+      return;
+    }
+
+    localStorage.setItem("@supermarketApp:userName", userName);
+  };
   return (
     <div className="login-main">
       <div className="login-container">
@@ -29,7 +37,7 @@ const Login = () => {
             value={userName}
             onChange={(value) => setUserName(value)}
           />
-          <Button text="Acessar" />
+          <Button onClick={clickLogin} text="Acessar" />
         </div>
       </div>
     </div>

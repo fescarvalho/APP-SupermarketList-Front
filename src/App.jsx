@@ -1,9 +1,9 @@
-import Login from "./pages/Login/Login";
+import Routers from "./Routes/Routers";
 
 const App = () => {
   return (
     <div>
-      <Login />
+      <Routers />
     </div>
   );
 };
