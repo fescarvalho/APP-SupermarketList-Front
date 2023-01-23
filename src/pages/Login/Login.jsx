@@ -3,8 +3,11 @@ import "../.././index.css";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import "./Login.css";
+import { SAVE_USERNAME } from "../../constants/constants";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [userName, setUserName] = useState("");
 
   const clickLogin = () => {
@@ -13,7 +16,8 @@ const Login = () => {
       return;
     }
 
-    localStorage.setItem("@supermarketApp:userName", userName);
+    localStorage.setItem(SAVE_USERNAME, userName);
+    navigate("/list");
   };
   return (
     <div className="login-main">
