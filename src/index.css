@@ -1,0 +1,65 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../public/fonts/AvenirNext-Regular.otf");
+}
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("../public/fonts/AvenirNext-Medium.ttf");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Avenir Bold";
+  src: url("../public/fonts/AvenirNext-Bold.otf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../public/fonts/AvenirNext-It.otf");
+  font-style: italic;
+}
+
+h1 {
+  font-size: 36px;
+  font-family: "Avenir Bold";
+  line-height: 40px;
+}
+h2 {
+  font-size: 24px;
+  font-family: "Avenir Bold";
+  line-height: 27px;
+}
+h3 {
+  font-size: 24px;
+  font-family: "Avenir Medium";
+  line-height: 24px;
+}
+h4 {
+  font-size: 16px;
+  font-family: "Avenir Medium";
+  font-weight: 600;
+  line-height: 24px;
+  color: rgba(119, 133, 219, 1);
+}
+
+p.subtitle {
+  font-family: "Avenir Next";
+  font-size: 16px;
+  line-height: 18px;
+}
+p.card-subtitle {
+  font-family: "Avenir Next";
+  font-size: 14px;
+  line-height: 18px;
+}
+p.label {
+  font-family: "Avenir Medium";
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+}
