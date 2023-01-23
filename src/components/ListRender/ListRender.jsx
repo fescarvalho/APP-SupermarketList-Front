@@ -1,4 +1,5 @@
 import { ListCard } from "../ListCard/ListCard";
+import "./ListRender.css";
 
 export const ListRender = ({ list }) => {
   if (list.length === 0) {
@@ -6,10 +7,10 @@ export const ListRender = ({ list }) => {
   }
 
   return (
-    <>
+    <div className="list-render-container">
       {list.map((item) => (
         <ListCard key={item?._id} item={item} />
       ))}
-    </>
+    </div>
   );
 };

@@ -12,16 +12,19 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 60vw;
-  height: 84vh;
+  max-height: 90%;
   background-color: #fff;
   border-radius: 24px;
   padding: 24px;
+  overflow: hidden;
 }
 .list-screen-list-container {
   display: flex;
-  width: 70%;
+  width: 90%;
+  height: 100%;
   flex-direction: column;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 .list-screen-header {
   display: flex;
