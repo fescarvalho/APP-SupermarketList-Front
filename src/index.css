@@ -63,3 +63,12 @@ p.label {
   line-height: 16px;
   font-weight: 600;
 }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(119, 133, 219, 0.7);
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  visibility: hidden;
+  width: 1px;
+}

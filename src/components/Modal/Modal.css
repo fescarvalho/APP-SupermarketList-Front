@@ -1,0 +1,47 @@
+.modal {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: flex-end;
+  justify-content: flex-end;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: auto;
+  padding: 0 24px;
+  background-color: white;
+  align-items: center;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.modal-close-button {
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../../../public/images/close.svg");
+}
+
+.modal-spacer {
+  height: 60vh;
+}

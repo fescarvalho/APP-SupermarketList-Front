@@ -3,9 +3,11 @@ import { getList } from "../../services/request";
 import Button from "../../components/Button/Button";
 import { Loader } from "../../components/Loader/Loader";
 import { ListRender } from "../../components/ListRender/ListRender";
+import { Modal } from "../../components/Modal/Modal";
 import "./List.css";
 
 const List = () => {
+  const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState([]);
 
@@ -20,6 +22,13 @@ const List = () => {
     loadListItems();
   }, []);
 
+  const onShowModal = () => {
+    setModalVisible(true);
+  };
+  const onCloseModal = () => {
+    setModalVisible(false);
+  };
+
   return (
     <div className="list-screen-container">
       <div className="list-screen-content-container">
@@ -29,13 +38,14 @@ const List = () => {
             <h1 className="list-screen-header-title ">Lista Supermercado</h1>
           </div>
           <div className="list-screen-header-button">
-            <Button text="Adcionar" />
+            <Button onClick={onShowModal} text="Adcionar" />
           </div>
         </div>
         <div className="list-screen-list-container">
           {loading ? <Loader /> : <ListRender list={listData} />}
         </div>
       </div>
+      {modalVisible && <Modal onClose={onCloseModal} />}
     </div>
   );
 };
