@@ -11,6 +11,12 @@
   align-items: flex start;
   margin-bottom: 16px;
 }
+
+@media screen and (max-width: 550px) {
+  .input-container {
+    width: 100%;
+  }
+}
 .input {
   font-family: "Avenir Next";
   font-size: 18px;

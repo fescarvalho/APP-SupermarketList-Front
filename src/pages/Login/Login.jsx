@@ -23,7 +23,7 @@ const Login = () => {
     <div className="login-main">
       <div className="login-container">
         <div className="login-header">
-          <img src="../../../public/images/shopping-bag.svg" alt="" />
+          <img src="../../../../../public/images/shopping-bag.svg" alt="" />
           <div className="login-header-descption">
             <h2>Sua lista de supermercado mais fácil do que nunca</h2>
             <p className="subtitle">
@@ -37,7 +37,7 @@ const Login = () => {
           </p>
           <Input
             label="Username"
-            placeholder="Ex: fernando@teste.com"
+            placeholder="Ex: Fernando"
             value={userName}
             onChange={(value) => setUserName(value)}
           />

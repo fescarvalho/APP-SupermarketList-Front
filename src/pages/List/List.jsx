@@ -55,11 +55,14 @@ const List = () => {
       <div className="list-screen-content-container">
         <div className="list-screen-header">
           <div className="list-screen-logo-container">
-            <img className="logo-image" src="../../../public/images/logo.png" alt="" />
+            <img className="logo-image" src="../../../../public/images/logo.png" alt="" />
             <h1 className="list-screen-header-title ">Lista Supermercado</h1>
           </div>
           <div className="list-screen-header-button">
-            <Button onClick={onShowModal} text="Adcionar" />
+            <Button
+              onClick={onShowModal}
+              text={`${window.innerWidth >= 420 ? "Adicionar" : "+"}`}
+            ></Button>
           </div>
         </div>
         <div className="list-screen-list-container">

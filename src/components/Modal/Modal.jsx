@@ -64,7 +64,7 @@ export const Modal = ({ onClose, item }) => {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h1>{item ? "Editar Item" : "Adicionar novo item"}</h1>
+          <h1>{item ? "Editar Item" : "Adicionar item"}</h1>
           <button onClick={onClose} className="modal-close-button" />
         </div>
         <Input

@@ -7,7 +7,7 @@
   min-height: 58px;
   background-color: #fff;
   border-radius: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   padding: 0 12px;
   font-family: "Avenir Medium";
   cursor: pointer;
@@ -44,4 +44,21 @@
   width: 6px;
   height: 12px;
   object-fit: contain;
+}
+
+@media only screen and (max-width: 500px) {
+  .list-card-container {
+    width: 100%;
+    min-height: 38px;
+    margin-bottom: 26px;
+  }
+
+  .list-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+  }
+  .list-card-subtitle {
+    font-size: 18px;
+  }
 }

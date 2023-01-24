@@ -17,6 +17,26 @@
   border-radius: 42px;
 }
 
+@media screen and (max-width: 550px) {
+  .login-container {
+    max-width: 90vw;
+    height: 95vh;
+    padding: 40px;
+  }
+  .login-main {
+    background-color: rgba(119, 133, 219, 1);
+  }
+  .login-form {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .login-form button {
+    margin: 20px;
+  }
+}
+
 .login-header {
   display: flex;
   flex-direction: column;

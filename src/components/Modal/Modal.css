@@ -39,13 +39,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("../../../public/images/close.svg");
+  background-image: url("../../../../public/images/close.svg");
 }
 
-.buttons-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: space-between;
-  margin-top: 52vh;
+@media only screen and (max-width: 500px) {
+  .modal-content {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  button {
+    margin: 10px 0;
+  }
 }
