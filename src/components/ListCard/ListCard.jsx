@@ -1,4 +1,7 @@
 import { useState } from "react";
+import checkedsvg from "../../../public/images/checked.svg";
+import uncheckedsvg from "../../../public/images/unchecked.svg";
+
 import "./ListCard.css";
 
 export const ListCard = ({ item, onClick, onCheckItem }) => {
@@ -12,7 +15,7 @@ export const ListCard = ({ item, onClick, onCheckItem }) => {
           onCheckItem(item);
         }}
         className="checkbox"
-        src={`/images/${item.checked ? "checked.svg" : "unchecked.svg"}`}
+        src={`${item.checked ? checkedsvg : uncheckedsvg}`}
         alt="Checked-item"
       />
       <div className="list-card-text-container" onClick={() => onClick(item)}>
@@ -21,7 +24,7 @@ export const ListCard = ({ item, onClick, onCheckItem }) => {
       </div>
       <img
         onClick={() => onClick(item)}
-        src="../../../../public/images/arrow.svg"
+        src="/images/arrow.svg"
         alt="arrow-icon"
         className="arrow-icon"
       />

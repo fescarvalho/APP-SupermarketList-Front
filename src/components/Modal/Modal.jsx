@@ -1,5 +1,6 @@
 import "./Modal.css";
 import { useState, useEffect } from "react";
+import trash from "../../../public/images/trash.svg";
 import Input from "../Input/Input";
 import Button from "../../components/Button/Button";
 import { createItem, updateItem, deleteItem } from "../../services/request";
@@ -84,7 +85,7 @@ export const Modal = ({ onClose, item }) => {
         <div className="buttons-container">
           {item && (
             <Button
-              icon="trash"
+              icon={trash}
               variant="outline"
               text="Deletar"
               onClick={callDeleteItem}

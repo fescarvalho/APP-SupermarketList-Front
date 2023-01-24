@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../.././index.css";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import bang from "../../../public/images/shopping-bag.svg";
 import "./Login.css";
 import { SAVE_USERNAME } from "../../constants/constants";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ const Login = () => {
     <div className="login-main">
       <div className="login-container">
         <div className="login-header">
-          <img src="../../../../../public/images/shopping-bag.svg" alt="" />
+          <img src={bang} alt="" />
           <div className="login-header-descption">
             <h2>Sua lista de supermercado mais fácil do que nunca</h2>
             <p className="subtitle">
