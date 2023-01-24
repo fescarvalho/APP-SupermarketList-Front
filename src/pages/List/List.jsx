@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getList } from "../../services/request";
+import { getList, updateItem } from "../../services/request";
 import Button from "../../components/Button/Button";
 import { Loader } from "../../components/Loader/Loader";
 import { ListRender } from "../../components/ListRender/ListRender";
@@ -38,6 +38,18 @@ const List = () => {
     setModalVisible(true);
   };
 
+  const onCheckItem = async (item) => {
+    const result = await updateItem(item._id, {
+      name: item.name,
+      quantity: Number(item.quantity),
+      checked: !item.checked,
+    });
+
+    if (!result.error) {
+      await loadListItems();
+    }
+  };
+
   return (
     <div className="list-screen-container">
       <div className="list-screen-content-container">
@@ -51,7 +63,11 @@ const List = () => {
           </div>
         </div>
         <div className="list-screen-list-container">
-          {loading ? <Loader /> : <ListRender onEdit={onEditItem} list={listData} />}
+          {loading ? (
+            <Loader />
+          ) : (
+            <ListRender onCheckItem={onCheckItem} onEdit={onEditItem} list={listData} />
+          )}
         </div>
       </div>
       {modalVisible && <Modal item={selectedItem} onClose={onCloseModal} />}
