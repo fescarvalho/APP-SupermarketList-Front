@@ -31,3 +31,12 @@ export const updateItem = async (id, item) => {
     return { e };
   }
 };
+export const deleteItem = async (id) => {
+  try {
+    const result = await api.delete(`/list-items/${id}`);
+    return result.data;
+  } catch (e) {
+    alert("Erro ao deletar dados da api.");
+    return { e };
+  }
+};

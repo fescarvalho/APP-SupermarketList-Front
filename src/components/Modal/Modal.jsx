@@ -2,7 +2,7 @@ import "./Modal.css";
 import { useState, useEffect } from "react";
 import Input from "../Input/Input";
 import Button from "../../components/Button/Button";
-import { createItem, updateItem } from "../../services/request";
+import { createItem, updateItem, deleteItem } from "../../services/request";
 
 export const Modal = ({ onClose, item }) => {
   const [name, setName] = useState("");
@@ -34,7 +34,7 @@ export const Modal = ({ onClose, item }) => {
   const callUpdateItem = async () => {
     const validate = validateBeforeSave();
     if (validate) {
-      const result = await updateItem(item._id, {
+      const result = await updateItem(item?._id, {
         name,
         quantity: Number(quantity),
         checked: item.checked,
@@ -43,6 +43,13 @@ export const Modal = ({ onClose, item }) => {
         alert("Item atualizado com sucesso.!");
         onClose();
       }
+    }
+  };
+  const callDeleteItem = async () => {
+    const result = await deleteItem(item?._id);
+    if (!result.error) {
+      alert("Item deletado com sucesso.!");
+      onClose();
     }
   };
 
@@ -74,11 +81,21 @@ export const Modal = ({ onClose, item }) => {
           onChange={(value) => setQuantity(Number(value))}
           type="number"
         />
-        <div className="modal-spacer"></div>
-        <Button
-          onClick={item ? callUpdateItem : callAddItem}
-          text={item ? "Atualizar" : "Adcicionar"}
-        />
+        <div className="buttons-container">
+          {item && (
+            <Button
+              icon="trash"
+              variant="outline"
+              text="Deletar"
+              onClick={callDeleteItem}
+            />
+          )}
+
+          <Button
+            onClick={item ? callUpdateItem : callAddItem}
+            text={item ? "Atualizar" : "Adcicionar"}
+          />
+        </div>
       </div>
     </div>
   );
