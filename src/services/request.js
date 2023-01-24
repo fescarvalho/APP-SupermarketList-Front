@@ -6,6 +6,28 @@ export const getList = async () => {
     return result.data;
   } catch (e) {
     alert("Erro ao buscar dados da api.");
-    return { error };
+    return { e };
+  }
+};
+export const createItem = async (item) => {
+  try {
+    const result = await api.post("/list-items", {
+      ...item,
+    });
+    return result.data;
+  } catch (e) {
+    alert("Erro ao salvar dados da api.");
+    return { e };
+  }
+};
+export const updateItem = async (id, item) => {
+  try {
+    const result = await api.put(`/list-items/${id}`, {
+      ...item,
+    });
+    return result.data;
+  } catch (e) {
+    alert("Erro ao atualizar dados da api.");
+    return { e };
   }
 };

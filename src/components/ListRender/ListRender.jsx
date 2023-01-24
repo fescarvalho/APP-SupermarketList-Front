@@ -1,7 +1,7 @@
 import { ListCard } from "../ListCard/ListCard";
 import "./ListRender.css";
 
-export const ListRender = ({ list }) => {
+export const ListRender = ({ list, onEdit }) => {
   if (list.length === 0) {
     return <h4>Lista Vazia! Adicone um novo item clicando no botão 'Adcionar'</h4>;
   }
@@ -9,7 +9,7 @@ export const ListRender = ({ list }) => {
   return (
     <div className="list-render-container">
       {list.map((item) => (
-        <ListCard key={item?._id} item={item} />
+        <ListCard onClick={onEdit} key={item?._id} item={item} />
       ))}
     </div>
   );

@@ -1,16 +1,63 @@
 import "./Modal.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "../Input/Input";
 import Button from "../../components/Button/Button";
+import { createItem, updateItem } from "../../services/request";
 
-export const Modal = ({ onClose }) => {
+export const Modal = ({ onClose, item }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(0);
+
+  const validateBeforeSave = () => {
+    if (name.length < 3) {
+      alert("Nome tem que ter mais de 3 caracteres.");
+      return false;
+    }
+    if (quantity.length < 1) {
+      alert("Quantidade não pode ser menor que 1.");
+      return false;
+    }
+    return true;
+  };
+
+  const callAddItem = async () => {
+    const validate = validateBeforeSave();
+    if (validate) {
+      const result = await createItem({ name, quantity });
+      if (!result.error) {
+        alert("Item Salvo com sucesso.!");
+        onClose();
+      }
+    }
+  };
+
+  const callUpdateItem = async () => {
+    const validate = validateBeforeSave();
+    if (validate) {
+      const result = await updateItem(item._id, {
+        name,
+        quantity: Number(quantity),
+        checked: item.checked,
+      });
+      if (!result.error) {
+        alert("Item atualizado com sucesso.!");
+        onClose();
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (item?.name && item?.quantity) {
+      setName(item.name);
+      setQuantity(item.quantity);
+    }
+  }, [item]);
+
   return (
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h1>Adicionar novo item</h1>
+          <h1>{item ? "Editar Item" : "Adicionar novo item"}</h1>
           <button onClick={onClose} className="modal-close-button" />
         </div>
         <Input
@@ -24,11 +71,14 @@ export const Modal = ({ onClose }) => {
           id="modal-input"
           label="Quantidade"
           value={quantity}
-          onChange={(value) => setQuantity(value)}
+          onChange={(value) => setQuantity(Number(value))}
           type="number"
         />
         <div className="modal-spacer"></div>
-        <Button text="Adicionar" />
+        <Button
+          onClick={item ? callUpdateItem : callAddItem}
+          text={item ? "Atualizar" : "Adcicionar"}
+        />
       </div>
     </div>
   );
