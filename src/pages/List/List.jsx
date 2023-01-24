@@ -5,6 +5,9 @@ import { Loader } from "../../components/Loader/Loader";
 import { ListRender } from "../../components/ListRender/ListRender";
 import { Modal } from "../../components/Modal/Modal";
 import logo from "../../../public/images/logo.png";
+import logout from "../../../public/images/logout.svg";
+import { SAVE_USERNAME } from "../../constants/constants";
+import { useNavigate } from "react-router-dom";
 import "./List.css";
 
 const List = () => {
@@ -12,10 +15,11 @@ const List = () => {
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+  const navigate = useNavigate();
 
   const loadListItems = async () => {
     setLoading(true);
-    const result = await getList();
+    const result = await getList(SAVE_USERNAME);
     setListData(result);
     setLoading(false);
   };
@@ -51,6 +55,11 @@ const List = () => {
     }
   };
 
+  const onLogout = () => {
+    localStorage.removeItem(SAVE_USERNAME);
+    navigate("/");
+  };
+
   return (
     <div className="list-screen-container">
       <div className="list-screen-content-container">
@@ -60,9 +69,10 @@ const List = () => {
             <h1 className="list-screen-header-title ">Lista Supermercado</h1>
           </div>
           <div className="list-screen-header-button">
+            <Button onClick={onLogout} icon={logout}></Button>
             <Button
               onClick={onShowModal}
-              text={`${window.innerWidth >= 420 ? "Adicionar" : "+"}`}
+              text={`${window.innerWidth >= 500 ? "Adicionar" : "+"}`}
             ></Button>
           </div>
         </div>

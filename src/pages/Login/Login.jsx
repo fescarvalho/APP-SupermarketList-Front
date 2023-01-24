@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../.././index.css";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
@@ -11,7 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
 
-  const clickLogin = () => {
+  const clickLogin = async () => {
     if (userName.length < 3) {
       alert("Username deve conter mais de 3 caracteres.");
       return;

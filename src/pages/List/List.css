@@ -48,6 +48,9 @@
   margin-left: 10px;
 }
 .list-screen-header-button {
+  display: flex;
+  gap: 0.5em;
+  margin: 0 20px;
   width: 160px;
 }
 
@@ -78,8 +81,13 @@
     width: 42px;
     height: 42px;
   }
+  .list-screen-header-button button {
+    max-width: 30px;
+    border-radius: 5px;
+    font-size: 2rem;
+  }
   .list-screen-header-button {
-    width: 72px;
+    width: 20%;
   }
 
   .list-screen-header-title {
