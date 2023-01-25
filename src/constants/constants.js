@@ -1,1 +1,1 @@
-export const SAVE_USERNAME = "@supermarketApp:userName";
+export const SAVE_USERNAME = '@supermarketApp:userName';

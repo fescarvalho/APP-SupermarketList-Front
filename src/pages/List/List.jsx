@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { getList, updateItem } from "../../services/request";
-import Button from "../../components/Button/Button";
-import { Loader } from "../../components/Loader/Loader";
-import { ListRender } from "../../components/ListRender/ListRender";
-import { Modal } from "../../components/Modal/Modal";
-import logo from "../../../public/images/logo.png";
-import logout from "../../../public/images/logout.svg";
-import { SAVE_USERNAME } from "../../constants/constants";
-import { useNavigate } from "react-router-dom";
-import "./List.css";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button';
+import { getList, updateItem } from '../../services/request';
+import { Loader } from '../../components/Loader/Loader';
+import { ListRender } from '../../components/ListRender/ListRender';
+import { Modal } from '../../components/Modal/Modal';
+import logo from '../../../public/images/logo.png';
+import logout from '../../../public/images/logout.svg';
+import { SAVE_USERNAME } from '../../constants/constants';
+import './List.css';
 
-const List = () => {
+function List() {
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const [listData, setListData] = useState([]);
@@ -57,7 +57,7 @@ const List = () => {
 
   const onLogout = () => {
     localStorage.removeItem(SAVE_USERNAME);
-    navigate("/");
+    navigate('/');
   };
 
   return (
@@ -69,24 +69,28 @@ const List = () => {
             <h1 className="list-screen-header-title ">Lista Supermercado</h1>
           </div>
           <div className="list-screen-header-button">
-            <Button onClick={onLogout} icon={logout}></Button>
+            <Button onClick={onLogout} icon={logout} />
             <Button
               onClick={onShowModal}
-              text={`${window.innerWidth >= 500 ? "Adicionar" : "+"}`}
-            ></Button>
+              text={`${window.innerWidth >= 500 ? 'Adicionar' : '+'}`}
+            />
           </div>
         </div>
         <div className="list-screen-list-container">
           {loading ? (
             <Loader />
           ) : (
-            <ListRender onCheckItem={onCheckItem} onEdit={onEditItem} list={listData} />
+            <ListRender
+              onCheckItem={onCheckItem}
+              onEdit={onEditItem}
+              list={listData}
+            />
           )}
         </div>
       </div>
       {modalVisible && <Modal item={selectedItem} onClose={onCloseModal} />}
     </div>
   );
-};
+}
 
 export default List;

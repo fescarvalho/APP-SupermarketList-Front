@@ -1,3 +1,5 @@
-import "./Loader.css";
+import './Loader.css';
 
-export const Loader = () => <span className="loader" />;
+export function Loader() {
+  return <span className="loader" />;
+}

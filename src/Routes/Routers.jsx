@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "../pages/Login/Login";
-import List from "../pages/List/List";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from '../pages/Login/Login';
+import List from '../pages/List/List';
 
-const Routers = () => {
+function Routers() {
   return (
     <BrowserRouter>
       <Routes>
@@ -12,6 +12,6 @@ const Routers = () => {
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default Routers;

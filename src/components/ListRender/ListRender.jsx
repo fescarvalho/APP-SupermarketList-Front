@@ -1,9 +1,11 @@
-import { ListCard } from "../ListCard/ListCard";
-import "./ListRender.css";
+import { ListCard } from '../ListCard/ListCard';
+import './ListRender.css';
 
-export const ListRender = ({ list, onEdit, onCheckItem }) => {
+export function ListRender({ list, onEdit, onCheckItem }) {
   if (list.length === 0) {
-    return <h4>Lista Vazia! Adicone um novo item clicando no botão 'Adcionar'</h4>;
+    return (
+      <h4>Lista Vazia! Adicone um novo item clicando no botão 'Adcionar'</h4>
+    );
   }
 
   return (
@@ -18,4 +20,4 @@ export const ListRender = ({ list, onEdit, onCheckItem }) => {
       ))}
     </div>
   );
-};
+}

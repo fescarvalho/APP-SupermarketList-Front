@@ -1,10 +1,10 @@
-import { useState } from "react";
-import checkedsvg from "../../../public/images/checked.svg";
-import uncheckedsvg from "../../../public/images/unchecked.svg";
+import { useState } from 'react';
+import checkedsvg from '../../../public/images/checked.svg';
+import uncheckedsvg from '../../../public/images/unchecked.svg';
 
-import "./ListCard.css";
+import './ListCard.css';
 
-export const ListCard = ({ item, onClick, onCheckItem }) => {
+export function ListCard({ item, onClick, onCheckItem }) {
   const [checked, setChecked] = useState(false);
 
   return (
@@ -30,4 +30,4 @@ export const ListCard = ({ item, onClick, onCheckItem }) => {
       />
     </div>
   );
-};
+}

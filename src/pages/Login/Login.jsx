@@ -1,34 +1,36 @@
-import { useEffect, useState } from "react";
-import "../.././index.css";
-import Button from "../../components/Button/Button";
-import Input from "../../components/Input/Input";
-import bang from "../../../public/images/shopping-bag.svg";
-import "./Login.css";
-import { SAVE_USERNAME } from "../../constants/constants";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import '../../index.css';
+import Button from '../../components/Button/Button';
+import Input from '../../components/Input/Input';
+import bang from '../../../public/images/shopping-bag.svg';
+import './Login.css';
+import { SAVE_USERNAME } from '../../constants/constants';
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
+  const [userName, setUserName] = useState('');
 
   const clickLogin = async () => {
     if (userName.length < 3) {
-      alert("Username deve conter mais de 3 caracteres.");
+      alert('Username deve conter mais de 3 caracteres.');
       return;
     }
 
     localStorage.setItem(SAVE_USERNAME, userName);
-    navigate("/list");
+    navigate('/list');
   };
   return (
     <div className="login-main">
       <div className="login-container">
+        \jsx-eslint\eslint-plugin-react\tree\master\docs\rules\react-in-jsx-scope.md
         <div className="login-header">
           <img src={bang} alt="" />
           <div className="login-header-descption">
             <h2>Sua lista de supermercado mais fácil do que nunca</h2>
             <p className="subtitle">
-              Ajudamos você a organizar sua lista de compras de forma descomplicada.
+              Ajudamos você a organizar sua lista de compras de forma
+              descomplicada.
             </p>
           </div>
         </div>
@@ -47,6 +49,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;

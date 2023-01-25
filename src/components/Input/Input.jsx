@@ -1,6 +1,6 @@
-import "./Input.css";
+import './Input.css';
 
-const Input = ({ label, placeholder, onChange, value, type }) => {
+function Input({ label, placeholder, onChange, value, type }) {
   return (
     <div className="input-container">
       <span className="input-label">{label}</span>
@@ -9,10 +9,10 @@ const Input = ({ label, placeholder, onChange, value, type }) => {
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        type={type || "text"}
+        type={type || 'text'}
       />
     </div>
   );
-};
+}
 
 export default Input;

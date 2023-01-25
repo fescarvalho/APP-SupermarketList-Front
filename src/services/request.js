@@ -1,22 +1,22 @@
-import { api } from "./api";
+import { api } from './api';
 
 export const getList = async () => {
   try {
-    const result = await api.get("/list-items");
+    const result = await api.get('/list-items');
     return result.data;
   } catch (e) {
-    alert("Erro ao buscar dados da api.");
+    alert('Erro ao buscar dados da api.');
     return { e };
   }
 };
 export const createItem = async (item) => {
   try {
-    const result = await api.post("/list-items", {
+    const result = await api.post('/list-items', {
       ...item,
     });
     return result.data;
   } catch (e) {
-    alert("Erro ao salvar dados da api.");
+    alert('Erro ao salvar dados da api.');
     return { e };
   }
 };
@@ -27,7 +27,7 @@ export const updateItem = async (id, item) => {
     });
     return result.data;
   } catch (e) {
-    alert("Erro ao atualizar dados da api.");
+    alert('Erro ao atualizar dados da api.');
     return { e };
   }
 };
@@ -36,7 +36,7 @@ export const deleteItem = async (id) => {
     const result = await api.delete(`/list-items/${id}`);
     return result.data;
   } catch (e) {
-    alert("Erro ao deletar dados da api.");
+    alert('Erro ao deletar dados da api.');
     return { e };
   }
 };

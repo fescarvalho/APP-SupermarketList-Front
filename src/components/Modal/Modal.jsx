@@ -1,21 +1,21 @@
-import "./Modal.css";
-import { useState, useEffect } from "react";
-import trash from "../../../public/images/trash.svg";
-import Input from "../Input/Input";
-import Button from "../../components/Button/Button";
-import { createItem, updateItem, deleteItem } from "../../services/request";
+import './Modal.css';
+import { useState, useEffect } from 'react';
+import trash from '../../../public/images/trash.svg';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+import { createItem, updateItem, deleteItem } from '../../services/request';
 
-export const Modal = ({ onClose, item }) => {
-  const [name, setName] = useState("");
+export function Modal({ onClose, item }) {
+  const [name, setName] = useState('');
   const [quantity, setQuantity] = useState(0);
 
   const validateBeforeSave = () => {
     if (name.length < 3) {
-      alert("Nome tem que ter mais de 3 caracteres.");
+      alert('Nome tem que ter mais de 3 caracteres.');
       return false;
     }
     if (quantity.length < 1) {
-      alert("Quantidade não pode ser menor que 1.");
+      alert('Quantidade não pode ser menor que 1.');
       return false;
     }
     return true;
@@ -26,7 +26,7 @@ export const Modal = ({ onClose, item }) => {
     if (validate) {
       const result = await createItem({ name, quantity });
       if (!result.error) {
-        alert("Item Salvo com sucesso.!");
+        alert('Item Salvo com sucesso.!');
         onClose();
       }
     }
@@ -41,7 +41,7 @@ export const Modal = ({ onClose, item }) => {
         checked: item.checked,
       });
       if (!result.error) {
-        alert("Item atualizado com sucesso.!");
+        alert('Item atualizado com sucesso.!');
         onClose();
       }
     }
@@ -49,7 +49,7 @@ export const Modal = ({ onClose, item }) => {
   const callDeleteItem = async () => {
     const result = await deleteItem(item?._id);
     if (!result.error) {
-      alert("Item deletado com sucesso.!");
+      alert('Item deletado com sucesso.!');
       onClose();
     }
   };
@@ -65,7 +65,7 @@ export const Modal = ({ onClose, item }) => {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h1>{item ? "Editar Item" : "Adicionar item"}</h1>
+          <h1>{item ? 'Editar Item' : 'Adicionar item'}</h1>
           <button onClick={onClose} className="modal-close-button" />
         </div>
         <Input
@@ -94,10 +94,10 @@ export const Modal = ({ onClose, item }) => {
 
           <Button
             onClick={item ? callUpdateItem : callAddItem}
-            text={item ? "Atualizar" : "Adcicionar"}
+            text={item ? 'Atualizar' : 'Adcicionar'}
           />
         </div>
       </div>
     </div>
   );
-};
+}
