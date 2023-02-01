@@ -23,7 +23,6 @@ function Login() {
   return (
     <div className="login-main">
       <div className="login-container">
-        \jsx-eslint\eslint-plugin-react\tree\master\docs\rules\react-in-jsx-scope.md
         <div className="login-header">
           <img src={bang} alt="" />
           <div className="login-header-descption">
